@@ -1,8 +1,8 @@
 const express = require('express');
 const http = require('http');
 const socketIo = require('socket.io');
+const path = require('path');
 
-const port = process.env.PORT || 4001;
 const index = require('./index');
 
 const app = express();
@@ -26,4 +26,9 @@ const getApiAndEmit = (socket) => {
   socket.emit('event', io.engine.clientsCount);
 };
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/client/build/index.html'));
+});
+
+const port = process.env.PORT || 4001;
 server.listen(port, () => console.log(`Listening on port ${port}`));
