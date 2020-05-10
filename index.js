@@ -1,8 +1,28 @@
 const express = require('express');
-const router = express.Router();
+const http = require('http');
+const socketIo = require('socket.io');
 
-router.get('/', (req, res) => {
-  res.send({ response: 'I am alive' }).status(200);
+const port = process.env.PORT || 4001;
+const index = require('./router');
+
+const app = express();
+app.use(index);
+
+const server = http.createServer(app);
+const io = socketIo(server);
+
+io.on('connection', (socket) => {
+  console.log('+ client connected');
+  getApiAndEmit(socket);
+
+  socket.on('disconnect', () => {
+    console.log('- Client disconnected');
+    getApiAndEmit(socket);
+  });
 });
 
-module.exports = router;
+const getApiAndEmit = (socket) => {
+  socket.emit('event', io.engine.clientsCount);
+};
+
+server.listen(port, () => console.log(`Listening on port ${port}`));
