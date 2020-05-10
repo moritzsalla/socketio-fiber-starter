@@ -15,8 +15,8 @@
     "three": "^0.116.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-scripts start && node server/app.js",
+    "build": "react-scripts build && node server/app.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
