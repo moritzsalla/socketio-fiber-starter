@@ -5,12 +5,9 @@ const socketIo = require('socket.io');
 const port = process.env.PORT || 4001;
 const index = require('./index');
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
-}
-
 const app = express();
 app.use(index);
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 const server = http.createServer(app);
 const io = socketIo(server);

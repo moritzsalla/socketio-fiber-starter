@@ -12,7 +12,5 @@
     "start": "node app.js",
     "heroku-postbuild": "cd client && yarn && yarn run build"
   },
-  "devDependencies": {
-    "concurrently": "^5.2.0"
-  }
+  "devDependencies": {}
 }
