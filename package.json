@@ -10,8 +10,8 @@
     "socket.io": "^2.3.0"
   },
   "scripts": {
-    "start": "concurrently \"node app.js\" \"cd client/ && yarn run build\"",
-    "heroku-postbuild": "cd client && yarn && yarn run build"
+    "start": "concurrently \"node app.js\" \"cd client/ && yarn run start\"",
+    "build": "concurrently \"node app.js\" \"cd client/ && yarn run build\""
   },
   "devDependencies": {}
 }
