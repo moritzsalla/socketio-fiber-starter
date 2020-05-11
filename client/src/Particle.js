@@ -9,7 +9,7 @@ const Particle = (props) => {
   useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.01));
 
   const randScale = () => {
-    let r = Math.random() * 3;
+    let r = Math.random() * 3 + 1;
     return [r, r, r];
   };
 

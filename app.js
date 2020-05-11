@@ -14,6 +14,7 @@ const io = socketIo(server);
 
 io.on('connection', (socket) => {
   console.log('+ client connected');
+
   getApiAndEmit(socket);
 
   socket.on('disconnect', () => {
@@ -24,7 +25,8 @@ io.on('connection', (socket) => {
 
 const getApiAndEmit = (socket) => {
   console.log('emit event');
-  socket.emit('event', io.engine.clientsCount);
+  io.emit('event', io.engine.clientsCount);
+  socket.broadcast.emit('event', io.engine.clientsCount);
 };
 
 // app.get('*', (req, res) => {
