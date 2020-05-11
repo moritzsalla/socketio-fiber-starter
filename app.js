@@ -7,7 +7,7 @@ const index = require('./index');
 
 const app = express();
 app.use(index);
-app.use(express.static(path.join(__dirname, 'client/build')));
+// app.use(express.static(path.join(__dirname, 'client/build')));
 
 const server = http.createServer(app);
 const io = socketIo(server);
@@ -23,12 +23,13 @@ io.on('connection', (socket) => {
 });
 
 const getApiAndEmit = (socket) => {
+  console.log('emit event');
   socket.emit('event', io.engine.clientsCount);
 };
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '/client/build/index.html'));
-});
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname + '/client/build/index.html'));
+// });
 
 const port = process.env.PORT || 4001;
 server.listen(port, () => console.log(`Listening on port ${port}`));

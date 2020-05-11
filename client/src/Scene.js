@@ -8,10 +8,12 @@ extend({ OrbitControls });
 
 const GlobalStyle = createGlobalStyle`
   html, body {
+    background: black;
     min-height: 100vh;
     min-width: 100vw;
     margin: 0;
     padding: 0;
+    color: white;
   }
 
   canvas {

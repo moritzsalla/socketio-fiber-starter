@@ -1,22 +1,24 @@
 import React from 'react';
 import socketIOClient from 'socket.io-client';
 import Scene from './Scene';
+const ENDPOINT = 'http://localhost:4001';
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       response: false,
-      endpoint: 'http://127.0.0.1:4001',
     };
   }
 
   componentDidMount() {
-    const { endpoint } = this.state;
+    const socket = socketIOClient(ENDPOINT);
+    let self = this;
 
-    const socket = socketIOClient(endpoint);
-
-    socket.on('event', (data) => this.setState({ response: data }));
+    socket.on('event', (data) => {
+      console.log(data);
+      self.setState({ response: data });
+    });
   }
 
   render() {
