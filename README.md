@@ -1,5 +1,5 @@
 # Fiber + Socket.io
 
-React-fiber-websockets starter. These three technologies can be used to create multiplayer experiences.
+React-fiber-websockets starter for multiplayer experiences
 
 ![Image](screenshot.jpg)
