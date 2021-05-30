@@ -1,5 +1,5 @@
 # Fiber + Socket.io
 
-React-fiber-websockets starter for multiplayer experiences
+React-fiber-websockets starter for 3d real time multiplayer sites
 
 ![Image](screenshot.jpg)
