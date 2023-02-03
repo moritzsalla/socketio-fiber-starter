@@ -11,5 +11,8 @@
   },
   "scripts": {
     "start": "node app.js"
+  },
+  "devDependencies": {
+    "eslint": "^8.33.0"
   }
 }
